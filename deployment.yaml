@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: miapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: miapp
+  template:
+    metadata:
+      labels:
+        app: miapp
+    spec:
+      containers:
+      - name: miapp
+        image: miusuario/miapp:latest  # Reemplaza con el nombre de tu imagen en Docker Hub o privado
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: miapp-service
+spec:
+  selector:
+    app: miapp
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
