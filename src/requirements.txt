@@ -1,1 +1,2 @@
-Flask==2.0.1
+Flask==2.2.0       # Versión de Flask compatible con versiones modernas de Werkzeug
+werkzeug==2.2.0     # Versión de Werkzeug compatible con Flask 2.x
